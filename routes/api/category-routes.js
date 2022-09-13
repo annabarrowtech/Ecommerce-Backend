@@ -40,7 +40,7 @@ router.get('/:id', (req, res) => {
     .then(dbCatData => {
       if(!dbCatData) {
         res.status(404).json({message: 'No categories found'});
-        return;        
+        return;
       }
       res.json(dbCatData);
     })

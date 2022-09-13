@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
     },
     include: {
       model: Product,
-      attributes: ['product_name', 'price', 'stock', 'category_id']      
+      attributes: ['product_name', 'price', 'stock', 'category_id']
     }
   })
     .then(dbTagData => res.json(dbTagData))
@@ -58,8 +58,8 @@ router.put('/:id', (req, res) => {
     }
   })
     .then(dbTagData => {
-      if (!dbTagData) {
-        res.status(404).json({message: 'No tag found with this id'});
+      if (!dbTagData){
+        res.status(404).json({message:'No tag found with this id'});
         return;
       }
       res.json(dbTagData);
@@ -74,7 +74,7 @@ router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
     where: {
-      id: req.params.id 
+      id: req.params.id
     }
   })
   .then(dbTagData => {
@@ -84,7 +84,7 @@ router.delete('/:id', (req, res) => {
     }
     res.json(dbTagData);
   })
-  .catch(err => {
+  .catch(err =>{
     console.log(err);
     res.status(500).json(err);
   });
